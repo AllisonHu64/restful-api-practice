@@ -3,6 +3,9 @@
 Encapsulates some commonly used MongoDB functionality.
 """
 
+from pymongo import MongoClient, ReturnDocument
+from api.config.config import Config
+
 class MongoDBHandler():
     """Handles common Mongo Database operations, such as insert,
     find, modify and delete.
@@ -12,72 +15,36 @@ class MongoDBHandler():
         _logger: A logger.
     """
 
-    def __init__(self, app):
+    def __init__(self):
         """Inits MongoDBHandlerClass with app.
 
         Args:
             app: An application that contains a config.MONGO_HOST 
             attribute.
         """
+        db_name = Config().MONGO_DB_NAME
+        db_url = Config().MONGO_URL
+        client = MongoClient(db_url)
+        self._db = client[db_name]
 
     
     def insert_one(self, col, document):
-        """Inserts new document/row into Mongo Database collection/
-        table.
-
-        Args:
-            col: Collection/Table name.
-            document: Document/Row to be inserted.
-
-        Returns:
-            An instance of pymongo.results.InsertOneResult.
-
-        Raise:
-            DuplicateDocument: A duplicate document already exists.
-        """
+        return self._db[col].insert_one(document)
 
     def find(self, col, filter=None):
-        """Finds all qualifying documents/rows into Mongo Database 
-        collection/table based on the filter.
-
-        Args:
-            col: Collection/Table name.
-            filter: A query document that selects which documents 
-                to include in the result set. Can be an empty document 
-                to include all documents.
-
-        Returns:
-            An array of documents/rows.
-        """
-
-    def update_one(self, col, filter=None, update):
-        """Update one row into Mongo Database collection/table based 
-        on the filter.
-
-        Args:
-            col: Collection/Table name.
-            filter: A query document that selects which documents 
-                to include in the result set. Can be an empty document 
-                to include all documents.
-            update: The update operations to apply.
-
-        Returns:
-            The updated document/row.
-        """
+        return self._db[col].find(filter)
     
-    def delete(self, col, filter=None):
-        """Delete one row into Mongo Database collection/table based 
-        on the filter.
+    def find_one(self, col, filter=None):
+        return self._db[col].find_one(filter)
 
-        Args:
-            col: Collection/Table name.
-            filter: A query document that selects which documents 
-                to include in the result set. Can be an empty document 
-                to include all documents.
+    def find_one_with_sort(self, col, filter=None, sort=None):
+        return self._db[col].find_one(filter, sort=sort)
 
-        Returns:
-            The deleted document/row.
-        """
-
+    def update_one(self, col, filter, update):
+        return self._db[col].update_one(filter, update)
+    
+    def delete_one(self, col, filter=None):
+        return self._db[col].delete_one(filter)
         
-
+    def count_documents(self, col, filter=None):
+        return self._db[col].count_documents(filter)

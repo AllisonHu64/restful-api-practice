@@ -138,7 +138,8 @@ PATCH /backend-api/v1/user
 Payload: Content-Type=application/json 
 {
     "id": 1,
-    "age": 10
+    "age": 10,
+    "name": 'daniel'
 }
 
 Status: 200
@@ -160,7 +161,7 @@ Payload: Content-Type=application/json
 Status: 205
 {
     "rep_code": 205,
-    "msg": "Please provide at least one of ['name', 'age'] fields to be modified in payload"
+    "msg": "Please provide ['id', 'name', 'age'] fields to be modified in payload"
 }
 ```
 
@@ -170,7 +171,8 @@ PATCH /backend-api/v1/user
 Payload: Content-Type=application/json 
 {
     "id": 1,
-    "age": 10
+    "age": 10,
+    "name": "daniel"
 }
 
 Status: 409

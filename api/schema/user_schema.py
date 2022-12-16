@@ -5,11 +5,12 @@ class UserSchema(Schema):
     collection/table.
     """
     class Meta:
-    """Contains Meta data for the Schema.
+        """Contains Meta data for the Schema.
 
-    Attributes:
-        fields: Schema's fields.
-    """
+        Attributes:
+            fields: Schema's fields.
+        """
+
         fields = ["_id",
                   "id",
                   "name",
