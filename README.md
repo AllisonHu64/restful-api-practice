@@ -27,7 +27,7 @@ docker run -d -p 30001:27017 -v mongo-db-vol:/data/db --name=ztgg-mongo mongo
 
 Run a minimal flask app
 ```
-flask --app entrypoint run
+flask run
 ```
 
 # Styleguide
