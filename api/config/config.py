@@ -1,3 +1,5 @@
+import os
+
 class Singleton:
     """
     A non-thread-safe helper class to ease implementing singletons.
@@ -54,8 +56,12 @@ class Config:
 
     def __init__(self):
         # TODO(AllisonHu64) add config for development environment and production environment
-        self.MONGO_DOMAIN = 'localhost'
-        self.MONGO_PORT = 30001
+        run_env = os.environ.get('RUN_ENV') or 'local'
+        if run_env == 'local':
+            self.MONGO_DOMAIN = 'localhost'
+            self.MONGO_PORT = 30001
+        elif run_env == 'development':
+            self.MONGO_DOMAIN = os.environ.get('MONGO_DOMAIN')
+            self.MONGO_PORT = os.environ.get('MONGO_PORT')
         self.MONGO_URL = 'mongodb://{}:{}/'.format(self.MONGO_DOMAIN, self.MONGO_PORT)
-    
 
