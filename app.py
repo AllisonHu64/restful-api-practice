@@ -3,10 +3,12 @@
 from api.config.config import Config
 from api.resources.user_api import UserApi
 from api.resources.users_api import UsersApi
+from flask_cors import CORS
 from flask import Flask
 from flask_restful import Api
 
 app = Flask(__name__)
+CORS(app)
 api = Api(app)
 
 api.add_resource(UsersApi, "{}users".format(Config.instance().APPLICATION_ROOT))
