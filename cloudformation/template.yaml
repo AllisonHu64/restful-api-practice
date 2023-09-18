@@ -426,6 +426,18 @@ Resources:
       Tags:
         - Key: WebServer
           Value: BackEnd
+      UserData:
+        "Fn::Base64":
+          !Sub |
+              #!/bin/bash
+              yum update -y
+              yum install ruby -y
+              yum install wget -y
+              wget https://aws-codedeploy-${AWS::Region}.s3.${AWS::Region}.amazonaws.com/latest/install
+              chmod +x ./install
+              ./install auto
+              service codedeploy-agent start
+      IamInstanceProfile: !Ref BackEndRoleInstanceProfile
   InstanceSecurityGroup:
     Type: 'AWS::EC2::SecurityGroup'
     Properties:
@@ -501,6 +513,39 @@ Resources:
       Path: "/"
       ManagedPolicyArns:
         - arn:aws:iam::aws:policy/service-role/AWSCodeDeployRole
+  BackEndInstanceRole:
+    Type: 'AWS::IAM::Role'
+    Properties:
+      AssumeRolePolicyDocument:
+        Statement:
+          - Effect: Allow
+            Principal:
+              Service:
+                - ec2.amazonaws.com
+            Action:
+              - 'sts:AssumeRole'
+      Path: /
+  BackEndInstanceRolePolicies:
+    Type: 'AWS::IAM::Policy'
+    Properties:
+      PolicyName: BackEndInstanceRole
+      PolicyDocument:
+        Statement:
+          - Effect: Allow
+            Action:
+              - 'autoscaling:Describe*'
+              - 'cloudformation:Describe*'
+              - 'cloudformation:GetTemplate'
+              - 's3:Get*'
+            Resource: '*'
+      Roles:
+        - !Ref BackEndInstanceRole
+  BackEndRoleInstanceProfile:
+    Type: 'AWS::IAM::InstanceProfile'
+    Properties:
+      Path: /
+      Roles:
+        - !Ref BackEndInstanceRole
 Outputs:
   InstanceId:
     Description: InstanceId of the newly created EC2 instance
