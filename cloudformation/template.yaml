@@ -430,6 +430,15 @@ Resources:
         "Fn::Base64":
           !Sub |
               #!/bin/bash
+              set -x
+              cd /usr/local
+
+              yum install python38 -y
+              curl -O https://bootstrap.pypa.io/get-pip.py
+              python3 get-pip.py --user
+              rm get-pip.py
+              pip3 install --user virtualenv
+
               yum update -y
               yum install ruby -y
               yum install wget -y
