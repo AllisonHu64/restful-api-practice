@@ -123,291 +123,10 @@ Parameters:
       - db.r5.12xlarge
       - db.r5.24xlarge                             
     ConstraintDescription : "Instance type must be of the ones supported for the region. Please refer to: https://docs.aws.amazon.com/documentdb/latest/developerguide/db-instance-classes.html#db-instance-classes-by-region"  
-Mappings:
-  AWSInstanceType2Arch:
-    t1.micro:
-      Arch: HVM64
-    t2.nano:
-      Arch: HVM64
-    t2.micro:
-      Arch: HVM64
-    t2.small:
-      Arch: HVM64
-    t2.medium:
-      Arch: HVM64
-    t2.large:
-      Arch: HVM64
-    m1.small:
-      Arch: HVM64
-    m1.medium:
-      Arch: HVM64
-    m1.large:
-      Arch: HVM64
-    m1.xlarge:
-      Arch: HVM64
-    m2.xlarge:
-      Arch: HVM64
-    m2.2xlarge:
-      Arch: HVM64
-    m2.4xlarge:
-      Arch: HVM64
-    m3.medium:
-      Arch: HVM64
-    m3.large:
-      Arch: HVM64
-    m3.xlarge:
-      Arch: HVM64
-    m3.2xlarge:
-      Arch: HVM64
-    m4.large:
-      Arch: HVM64
-    m4.xlarge:
-      Arch: HVM64
-    m4.2xlarge:
-      Arch: HVM64
-    m4.4xlarge:
-      Arch: HVM64
-    m4.10xlarge:
-      Arch: HVM64
-    c1.medium:
-      Arch: HVM64
-    c1.xlarge:
-      Arch: HVM64
-    c3.large:
-      Arch: HVM64
-    c3.xlarge:
-      Arch: HVM64
-    c3.2xlarge:
-      Arch: HVM64
-    c3.4xlarge:
-      Arch: HVM64
-    c3.8xlarge:
-      Arch: HVM64
-    c4.large:
-      Arch: HVM64
-    c4.xlarge:
-      Arch: HVM64
-    c4.2xlarge:
-      Arch: HVM64
-    c4.4xlarge:
-      Arch: HVM64
-    c4.8xlarge:
-      Arch: HVM64
-    g2.2xlarge:
-      Arch: HVMG2
-    g2.8xlarge:
-      Arch: HVMG2
-    r3.large:
-      Arch: HVM64
-    r3.xlarge:
-      Arch: HVM64
-    r3.2xlarge:
-      Arch: HVM64
-    r3.4xlarge:
-      Arch: HVM64
-    r3.8xlarge:
-      Arch: HVM64
-    i2.xlarge:
-      Arch: HVM64
-    i2.2xlarge:
-      Arch: HVM64
-    i2.4xlarge:
-      Arch: HVM64
-    i2.8xlarge:
-      Arch: HVM64
-    d2.xlarge:
-      Arch: HVM64
-    d2.2xlarge:
-      Arch: HVM64
-    d2.4xlarge:
-      Arch: HVM64
-    d2.8xlarge:
-      Arch: HVM64
-    hi1.4xlarge:
-      Arch: HVM64
-    hs1.8xlarge:
-      Arch: HVM64
-    cr1.8xlarge:
-      Arch: HVM64
-    cc2.8xlarge:
-      Arch: HVM64
-  AWSInstanceType2NATArch:
-    t1.micro:
-      Arch: NATHVM64
-    t2.nano:
-      Arch: NATHVM64
-    t2.micro:
-      Arch: NATHVM64
-    t2.small:
-      Arch: NATHVM64
-    t2.medium:
-      Arch: NATHVM64
-    t2.large:
-      Arch: NATHVM64
-    m1.small:
-      Arch: NATHVM64
-    m1.medium:
-      Arch: NATHVM64
-    m1.large:
-      Arch: NATHVM64
-    m1.xlarge:
-      Arch: NATHVM64
-    m2.xlarge:
-      Arch: NATHVM64
-    m2.2xlarge:
-      Arch: NATHVM64
-    m2.4xlarge:
-      Arch: NATHVM64
-    m3.medium:
-      Arch: NATHVM64
-    m3.large:
-      Arch: NATHVM64
-    m3.xlarge:
-      Arch: NATHVM64
-    m3.2xlarge:
-      Arch: NATHVM64
-    m4.large:
-      Arch: NATHVM64
-    m4.xlarge:
-      Arch: NATHVM64
-    m4.2xlarge:
-      Arch: NATHVM64
-    m4.4xlarge:
-      Arch: NATHVM64
-    m4.10xlarge:
-      Arch: NATHVM64
-    c1.medium:
-      Arch: NATHVM64
-    c1.xlarge:
-      Arch: NATHVM64
-    c3.large:
-      Arch: NATHVM64
-    c3.xlarge:
-      Arch: NATHVM64
-    c3.2xlarge:
-      Arch: NATHVM64
-    c3.4xlarge:
-      Arch: NATHVM64
-    c3.8xlarge:
-      Arch: NATHVM64
-    c4.large:
-      Arch: NATHVM64
-    c4.xlarge:
-      Arch: NATHVM64
-    c4.2xlarge:
-      Arch: NATHVM64
-    c4.4xlarge:
-      Arch: NATHVM64
-    c4.8xlarge:
-      Arch: NATHVM64
-    g2.2xlarge:
-      Arch: NATHVMG2
-    g2.8xlarge:
-      Arch: NATHVMG2
-    r3.large:
-      Arch: NATHVM64
-    r3.xlarge:
-      Arch: NATHVM64
-    r3.2xlarge:
-      Arch: NATHVM64
-    r3.4xlarge:
-      Arch: NATHVM64
-    r3.8xlarge:
-      Arch: NATHVM64
-    i2.xlarge:
-      Arch: NATHVM64
-    i2.2xlarge:
-      Arch: NATHVM64
-    i2.4xlarge:
-      Arch: NATHVM64
-    i2.8xlarge:
-      Arch: NATHVM64
-    d2.xlarge:
-      Arch: NATHVM64
-    d2.2xlarge:
-      Arch: NATHVM64
-    d2.4xlarge:
-      Arch: NATHVM64
-    d2.8xlarge:
-      Arch: NATHVM64
-    hi1.4xlarge:
-      Arch: NATHVM64
-    hs1.8xlarge:
-      Arch: NATHVM64
-    cr1.8xlarge:
-      Arch: NATHVM64
-    cc2.8xlarge:
-      Arch: NATHVM64
-  AWSRegionArch2AMI:
-    af-south-1:
-      HVM64: ami-064cc455f8a1ef504
-      HVMG2: NOT_SUPPORTED
-    ap-east-1:
-      HVM64: ami-f85b1989
-      HVMG2: NOT_SUPPORTED
-    ap-northeast-1:
-      HVM64: ami-0b2c2a754d5b4da22
-      HVMG2: ami-09d0e0e099ecabba2
-    ap-northeast-2:
-      HVM64: ami-0493ab99920f410fc
-      HVMG2: NOT_SUPPORTED
-    ap-northeast-3:
-      HVM64: ami-01344f6f63a4decc1
-      HVMG2: NOT_SUPPORTED
-    ap-south-1:
-      HVM64: ami-03cfb5e1fb4fac428
-      HVMG2: ami-0244c1d42815af84a
-    ap-southeast-1:
-      HVM64: ami-0ba35dc9caf73d1c7
-      HVMG2: ami-0e46ce0d6a87dc979
-    ap-southeast-2:
-      HVM64: ami-0ae99b503e8694028
-      HVMG2: ami-0c0ab057a101d8ff2
-    ca-central-1:
-      HVM64: ami-0803e21a2ec22f953
-      HVMG2: NOT_SUPPORTED
-    cn-north-1:
-      HVM64: ami-07a3f215cc90c889c
-      HVMG2: NOT_SUPPORTED
-    cn-northwest-1:
-      HVM64: ami-0a3b3b10f714a0ff4
-      HVMG2: NOT_SUPPORTED
-    eu-central-1:
-      HVM64: ami-0474863011a7d1541
-      HVMG2: ami-0aa1822e3eb913a11
-    eu-north-1:
-      HVM64: ami-0de4b8910494dba0f
-      HVMG2: ami-32d55b4c
-    eu-south-1:
-      HVM64: ami-08427144fe9ebdef6
-      HVMG2: NOT_SUPPORTED
-    eu-west-1:
-      HVM64: ami-015232c01a82b847b
-      HVMG2: ami-0d5299b1c6112c3c7
-    eu-west-2:
-      HVM64: ami-0765d48d7e15beb93
-      HVMG2: NOT_SUPPORTED
-    eu-west-3:
-      HVM64: ami-0caf07637eda19d9c
-      HVMG2: NOT_SUPPORTED
-    me-south-1:
-      HVM64: ami-0744743d80915b497
-      HVMG2: NOT_SUPPORTED
-    sa-east-1:
-      HVM64: ami-0a52e8a6018e92bb0
-      HVMG2: NOT_SUPPORTED
-    us-east-1:
-      HVM64: ami-032930428bf1abbff
-      HVMG2: ami-0aeb704d503081ea6
-    us-east-2:
-      HVM64: ami-027cab9a7bf0155df
-      HVMG2: NOT_SUPPORTED
-    us-west-1:
-      HVM64: ami-088c153f74339f34c
-      HVMG2: ami-0a7fc72dc0e51aa77
-    us-west-2:
-      HVM64: ami-01fee56b22f308154
-      HVMG2: ami-0fe84a5b4563d8f27
+  ImageId:
+    Type: 'AWS::SSM::Parameter::Value<AWS::EC2::Image::Id>'
+    Default: '/aws/service/ami-amazon-linux-latest/amzn2-ami-hvm-x86_64-gp2'
+    Description: The Amazon EC2 Linux instance Amazon Machine Image (AMI), which designates the configuration of the new instance.
 Resources:
   EC2Instance:
     Type: 'AWS::EC2::Instance'
@@ -416,13 +135,7 @@ Resources:
       SecurityGroups:
         - !Ref InstanceSecurityGroup
       KeyName: !Ref KeyName
-      ImageId: !FindInMap 
-        - AWSRegionArch2AMI
-        - !Ref 'AWS::Region'
-        - !FindInMap 
-          - AWSInstanceType2Arch
-          - !Ref InstanceType
-          - Arch
+      ImageId: !Ref ImageId
       Tags:
         - Key: WebServer
           Value: BackEnd
@@ -433,11 +146,40 @@ Resources:
               set -x
               cd /usr/local
 
-              yum install python38 -y
+              yum install python3.8 -y
               curl -O https://bootstrap.pypa.io/get-pip.py
               python3 get-pip.py --user
               rm get-pip.py
               pip3 install --user virtualenv
+
+              mkdir flask
+              useradd -r flask
+              chown -R flask:flask /usr/local/flask
+              ls -l /usr/local/flask
+
+              echo "[Unit]
+              Description=WSGI Flask Server
+              After=network.target
+
+              [Service]
+              User=flask
+              Group=flask
+
+              Environment=RUN_ENV=development
+              Environment=MONGO_DOMAIN=/${MasterUser}:${MasterPassword}@${DBCluster.Endpoint}
+              Environment=MONGO_PORT=27017
+              Environment=MONGO_QUERY=/?tls=true&tlsCAFile=global-bundle.pem&replicaSet=rs0&readPreference=secondaryPreferred&retryWrites=false
+              WorkingDirectory=/usr/local/flask
+              ExecStart=$(whereis source | awk '{print $2}') /usr/local/flask/venv/bin/activate && /usr/local/flask/venv/bin/flask run
+              ExecStop=/bin/kill -s QUIT $MAINPID
+
+              RestartSec=10
+              Restart=always
+              [Install]
+              WantedBy=multi-user.target" > /etc/systemd/system/flask.service
+
+              systemctl daemon-reload
+              systemctl enable flask.service
 
               yum update -y
               yum install ruby -y
